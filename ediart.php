@@ -29,7 +29,7 @@ if (isset($_POST['title']) && isset($_POST['contenu']) && !empty($_FILES['image'
     
     // Insertion des données dans la base de données
     try {
-        $sql = "INSERT INTO article (title, contenu, image, id_ut) VALUES (:title, :contenu, :image, $id_ut);";
+        $sql = "INSERT INTO article (title, contenu, image) VALUES (:title, :contenu, :image);";
         
         require "./assets/core/config.php";
 
@@ -54,20 +54,35 @@ if (isset($_POST['title']) && isset($_POST['contenu']) && !empty($_FILES['image'
 <main class="ea-main">
     <form method="post" enctype="multipart/form-data" class="ea-container">
         <div class="ea-title">
-            <img src="./assets/img/logo-CCP2.png" alt="">
+            <div class="image-preview" id="image-preview"></div>
+            <input type="file" name="image" id="image-input">
             <div class="input-title">
                 <input type="text" name="title" placeholder="Titre">
             </div>
         </div>
-        <input type="file" name="image">
         <div class="ea-text">
-            <textarea name="contenu" cols="30" rows="10">
-            </textarea>
+            <textarea name="contenu" cols="30" rows="10"></textarea>
         </div>
         <button>Valider</button>
     </form>
 </main>
 
+<script>
+    const imageInput = document.getElementById('image-input');
+    const imagePreview = document.getElementById('image-preview');
+    
+    imageInput.addEventListener('change', () => {
+        const file = imageInput.files[0];
+        const fileReader = new FileReader();
+        fileReader.onload = () => {
+            const image = new Image();
+            image.src = fileReader.result;
+            imagePreview.innerHTML = '';
+            imagePreview.appendChild(image);
+        }
+        fileReader.readAsDataURL(file);
+    });
+</script>
 <?php
 
 require "./assets/core/footer.php";

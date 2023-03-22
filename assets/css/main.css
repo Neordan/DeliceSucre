@@ -225,9 +225,10 @@ nav a:hover {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   position: absolute;
-  width: 100px;
-  top: 60px;
-background: var(--lightbrown);
+  width: 200px;
+  top: 54px;
+  border-radius: 0 0 15px 15px;
+background: var(--lightblue);
 }
 
 .section-2 {
@@ -626,18 +627,20 @@ h2 {
 }
 
 .ea-text {
-  background-color: var(--lightblue);
   height: 200px;
-  width: 90%;
-  border-radius: 15px 0 0 15px;
-  text-align: justify;
-  overflow-y: scroll;
+  width: 100%;
 }
 
 .ea-text textarea {
-  /* opacity: 0; */
+  background-color: var(--lightblue);
+  width: 100%;
+  margin: 15px auto;
+  height: 200px;
+  text-align: justify;
   font-family: "Montserrat", sans-serif;
   padding: 15px;
+  border: none;
+  border-radius: 10px;
 }
 
 /************** CSS de la page des articles  ************/
@@ -665,8 +668,8 @@ h2 {
   /* padding: 20px; */
 }
 
-.img {
-  width: 150px;
+.entete-article img {
+  width: 220px;
   height: 100%;
   border: 2px solid var(--lightbrown);
   border-radius: 20px;
@@ -726,15 +729,48 @@ h2 {
   gap: 15px;
 }
 
-
-
 .commentaire {
   width: 90%;
   margin: 0 auto;
   padding: 10px;
   background: var(--lightblue);
-  height: 80px;
+  font-family: "Montserrat", sans-serif;
   border-radius: 20px;
+}
+
+.commentaireForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.commentaireForm input {
+  height: 40px;
+  width: 80%;
+  margin: auto;
+  padding: 5px 15px;
+  background: #fff;
+  border-radius: 15px;
+  border: none;
+}
+
+.commentaireForm input:focus {
+  outline: none;
+  border: 2px solid var(--lightbrown);
+}
+
+.commentaireForm button {
+  width: 30%;
+  background: var(--lightbrown);
+  border: none;
+  height: 25px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
 }
 
 /******* CSS du dashboard  *********/
@@ -840,6 +876,8 @@ footer {
 
 .line {
   text-decoration: underline;
+  font-family: "Pacifico", cursive;
+
 }
 
 .montserrat {
@@ -974,10 +1012,10 @@ footer {
     gap: 15px;
   }
 
-  .ea-title img {
+  .image-preview img{
     margin: 0;
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 100%;
   }
 
   .ea-title input {
@@ -987,6 +1025,10 @@ footer {
   .ea-text {
     height: 250px;
     width: 95%;
+  }
+
+  .ea-text textarea {
+    height: 250px;
   }
 
   /* page article  */
