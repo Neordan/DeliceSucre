@@ -1,16 +1,17 @@
 <?php
 require_once 'assets/core/config.php';
 
+
 $results = array();
-if(isset($_GET['q']) && $_GET['q'] !== '') {
-  $search = htmlspecialchars(trim(($_GET['q'])));
-  $sql = "SELECT * FROM article WHERE title LIKE :search ORDER BY date_creation DESC";
-  $query = $pdo->prepare($sql);
-  $query->execute([
-    'search' => '%'.$search.'%'
-  ]);
-  
-  $results = $query->fetchAll();
+if (isset($_GET['q']) && $_GET['q'] !== '') {
+    $search = htmlspecialchars(trim(($_GET['q'])));
+    $sql = "SELECT * FROM article WHERE title LIKE :search ORDER BY date_creation DESC";
+    $query = $pdo->prepare($sql);
+    $query->execute([
+        'search' => '%' . $search . '%'
+    ]);
+
+    $results = $query->fetchAll();
 }
 ?>
 
@@ -25,15 +26,17 @@ if(isset($_GET['q']) && $_GET['q'] !== '') {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <script src="../js/app.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ldf-iklAAAAACFoyh3f_ykPv6FLHlLQpWzJoNt5"></script>
     <script src="../js/app.js" defer></script>
 </head>
 
 <body>
     <header>
         <div class="header-container">
-            <a href="../../index.php"><img src="assets/img/logo-CCP2.png" alt="Logo"></a>
+            <a href="index.php"><img src="assets/img/logo-CCP2.png" alt="Logo"></a>
             <h1>Délice Sucré</h1>
-            <a href="../../login.php" class="h-btn">
+            <a href="login.php" class="h-btn">
                 <i class="fa-solid fa-user"></i>
             </a>
         </div>

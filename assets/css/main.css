@@ -16,6 +16,16 @@
   list-style: none;
 }
 
+textarea {
+  resize: none;
+  border: none;
+  outline: none;
+}
+
+h2 {
+  font-weight: 500;
+}
+
 /* ===== Scrollbar ===== */
 
 ::-webkit-scrollbar {
@@ -52,12 +62,15 @@
 /* ===== Taille du body ===== */
 
 body {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   width: 100%;
 }
 
 a {
   text-decoration: none;
+  color: #000;
 }
 /**************** CSS du header  ***************/
 
@@ -109,7 +122,7 @@ nav {
   align-items: center;
   justify-content: center;
   background-color: var(--green);
-  padding: 0 25px;
+  padding: 12px 25px;
 }
 
 nav ul {
@@ -195,7 +208,10 @@ nav a:hover {
 .index {
   display: flex;
   justify-content: space-between;
-  flex-grow: 1;
+}
+
+.index h2 {
+  font-size: 32px;
 }
 
 .section-1 {
@@ -203,6 +219,7 @@ nav a:hover {
   flex-basis: 70%;
   width: 100%;
   flex-grow: 1;
+  height: 890px;
 }
 
 .section-1,
@@ -210,8 +227,7 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 7px;
-  max-height: 900px;
+  padding: 7px 0;
 }
 
 .section-1 form {
@@ -225,15 +241,18 @@ nav a:hover {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   position: absolute;
-  width: 200px;
-  top: 54px;
+  width: 60%;
+  top: 55px;
   border-radius: 0 0 15px 15px;
 background: var(--lightblue);
 }
 
+.sectionresult a {
+  color: #000;
+}
+
 .section-2 {
   flex-basis: 35%;
-
   background-color: var(--lightblue);
 }
 
@@ -265,7 +284,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
-
+  
   width: 100%;
 }
 
@@ -274,17 +293,19 @@ h2 {
   color: #000;
 }
 
-.articles {
-  display: flex;
-}
-
 .petit-delices,
 .articles {
   margin: 10px;
-  min-height: 180px;
+  height: 230px;
   background-color: #fff;
   border: solid var(--lightbrown) 3px;
   border-radius: 15px;
+}
+
+
+.articles {
+  display: flex;
+  height: 270px;
 }
 
 .petit-delices {
@@ -305,6 +326,10 @@ h2 {
   padding: 20px;
 }
 
+.right::-webkit-scrollbar, .right::-webkit-scrollbar-thumb {
+  border-radius: 0 10px 10px 0;
+}
+
 .right .titre {
   text-align: center;
   margin: 10px 0 20px 0; 
@@ -315,6 +340,7 @@ h2 {
 .right p {
   font-size: 18px;
   text-align: justify;
+
 }
 
 .afficher-article {
@@ -338,6 +364,10 @@ h2 {
   background: var(--lightblue);
 }
 
+.dashboard {
+  padding: 5% 0;
+}
+
 .container-log,
 .container-log form,
 .container-reg,
@@ -355,7 +385,7 @@ h2 {
   background: #fff;
   border-radius: 15px;
   padding: 10px 5px 20px 5px;
-  box-shadow: 8px 10px 24px 2px rgba(0, 0, 0, 0.49);
+  box-shadow: 8px 10px 24px 2px rgba(0, 0, 0, 0.39);
   margin: 70px;
 }
 
@@ -407,7 +437,7 @@ h2 {
 }
 
 .container-log button,
-.container-reg button, .list-articles button {
+.container-reg button, .newArt {
   width: 50%;
   margin: auto;
   height: 45px;
@@ -485,9 +515,54 @@ h2 {
 
 /* ===== Profile ===== */
 
-.pf-main,
-.ea-main {
-  height: 540px;
+.pf-main {
+  height: 550px;
+}
+
+.pf-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.tools-profile {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+
+  border-radius: 15px 15px 0 0;
+}
+
+.tools-profile button {
+  border: none;
+}
+
+.onglet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 15px 15px 0 0;
+  width: 30%;
+  padding: 8px 5px;
+  transition: transform 0.1s ease-out;
+}
+
+.onglet:hover {
+  transform: translateZ(10px);
+}
+
+.onglet p {
+  color: var(--lightbrown);
+}
+
+.logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  font-family: "Pacifico", cursive;
+  font-size: 18px;
 }
 
 .pf-container {
@@ -496,12 +571,16 @@ h2 {
   justify-content: center;
   align-items: center;
   width: 80%;
-  margin: auto;
+  margin: 0 auto 25px auto;
   padding: 20px;
   height: 360px;
   border-radius: 15px;
   background-color: #fff;
-  box-shadow: 8px 10px 24px 2px rgba(0, 0, 0, 0.49);
+  box-shadow: 8px 10px 24px 2px rgba(46, 46, 46, 0.49);
+}
+
+.pf-container h2 {
+  font-size: 28px;
 }
 
 .pf-main h2 {
@@ -517,6 +596,7 @@ h2 {
 .pf-struct {
   display: flex;
   gap: 20px;
+  width: 80%;
 }
 
 .col {
@@ -568,6 +648,10 @@ h2 {
 
 .pf-info img {
   height: 100%;
+}
+
+#btnSave {
+  display: none;
 }
 
 /* ===== Edit Articles ===== */
@@ -684,7 +768,7 @@ h2 {
 
 .title-article p {
   font-family: "Pacifico", cursive;
-  font-size: 19px;
+  font-size: 23px;
   font-weight: 400;
 }
 
@@ -693,7 +777,6 @@ h2 {
   justify-content: center;
   align-items: center;
   width: 70%;
-
   border-radius: 15px;
   background: var(--lightblue);
   min-width: 200px;
@@ -702,14 +785,19 @@ h2 {
 
 .description-article {
   width: 100%;
-  height: 80%;
   margin: 0 auto;
   padding: 15px;
   height: 280px;
-  border-radius: 20px;
+  border-radius: 20px 5px 5px 20px;
   font-size: 15px;
   background: var(--lightblue);
   font-family: "Montserrat", sans-serif;
+  overflow-y: scroll;
+}
+
+.description-article::-webkit-scrollbar,
+.description-article::-webkit-scrollbar-thumb {
+  border-radius: 0 5px 5px 0;
 }
 
 .section-right,
@@ -718,9 +806,16 @@ h2 {
   flex-direction: column;
   box-shadow: 8px 10px 24px 2px rgba(0, 0, 0, 0.49);
   border: 2px solid var(--lightbrown);
-  height: 520px;
+  height: 530px;
   border-radius: 20px;
   background: #fff;
+}
+
+label {
+  font-family: "Montserrat", sans-serif;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .section-right {
@@ -731,22 +826,18 @@ h2 {
 
 .commentaire {
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
   padding: 10px;
   background: var(--lightblue);
   font-family: "Montserrat", sans-serif;
   border-radius: 20px;
-}
-
-.commentaireForm {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-
+  gap: 8px;
 }
 
-.commentaireForm input {
+.commentaire input {
   height: 40px;
   width: 80%;
   margin: auto;
@@ -756,12 +847,21 @@ h2 {
   border: none;
 }
 
-.commentaireForm input:focus {
+.commentaire input:focus {
   outline: none;
   border: 2px solid var(--lightbrown);
 }
 
-.commentaireForm button {
+.commentaire textarea {
+  width: 80%;
+  height: 100px;
+  border: 2px solid var(--green);
+  border-radius: 12px;
+  background: var(--lightblue);
+  padding: 10px;
+}
+
+.commentaire button {
   width: 30%;
   background: var(--lightbrown);
   border: none;
@@ -773,6 +873,11 @@ h2 {
   cursor: pointer;
 }
 
+.commentaires {
+  gap: 10px;
+  overflow-y: scroll;
+}
+
 /******* CSS du dashboard  *********/
 
 .dashboard-container {
@@ -781,9 +886,7 @@ h2 {
   border-radius: 20px;
   background: #fff;
   box-shadow: 8px 10px 24px 2px rgba(0, 0, 0, 0.49);
-  padding: 10px;
   margin: 20px 0;
-  height: 500px;
 }
 
 .list-container {
@@ -791,6 +894,7 @@ h2 {
     justify-content: space-between;
     width: 100%;
     height: auto;
+    padding-bottom: 15px;
   }
   
   .list-users, .list-articles {
@@ -799,9 +903,10 @@ h2 {
     align-items: center;
     justify-content: start;
     flex-basis: 49%;
-    padding: 0 10px;
+padding: 0;
     gap: 22px;
 }
+
 
 .recherche-users, .recherche-articles {
     display: flex;
@@ -829,29 +934,211 @@ h2 {
     border: 1px solid var(--lightbrown);
 }
 
+.search {
+  height: 50px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
 .list-users-table, .list-article-table {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     background: var(--lightblue);
     border-radius: 15px;
     width: 90%;
-    height: 280px;
-    padding: 15px;
+    height: 300px;
+    padding: 8px;
 }
 
+.list-users-table {
+  height: 340px;
+}
+
+.list-users-table h3, .list-article-table h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--brown);
+  font-family: "Pacifico", cursive;
+  font-weight: 300;
+}
+
+.result-users {
+  height: 300px;
+  overflow-y: scroll;
+  width: 90%;
+  margin: auto;
+  padding: 0 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.list-btn-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;   
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 15px;
+  border: 1px solid var(--lightbrown);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-users {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+}
+
+.save {
+  background: var(--lightbrown);
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  padding: 4px;
+}
+
+.save:hover {
+  background: var(--brown);
+  color: #fff;
+}
 
 .separation {
-    margin: 20px 25px;
+    margin: 20px 18px;
     width: 4px;
     height: 390px;
     background: var(--brown);
 }
 
-.list-articles button {
+.newArt {
   width: 80%;
   height: auto;
   padding: 10px;
   margin: 0;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+}
+
+.list-articles button:last-child:hover, .delete:hover {
+  background: var(--lightbrown);
+  color: white;
+}
+
+.delete {
+  background: var(--brown);
+  height: 100%;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  height: 32px;
+}
+
+.delete a {
+  color: #fff;
+  font-size: 15px;
+}
+
+
+select {
+  padding: 15px;
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+}
+
+/* css update page  */
+
+.update-container {
+  gap: 15px;
+  height: auto;
+}
+
+.update-container button {
+  margin-top: 150px;
+}
+
+.contenu-update textarea {
+  height: 300px;
+}
+
+.update {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contenu-update {
+  margin-top: 50px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.col input[type='file']{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+  font-size: 18px;
+  height: 46px;
+}
+
+.update img {
+  margin: 0;
+  width: 50%;
+  height: 100%;
+}
+/* css de la page d'erreur quand le user est désactivé */
+
+.user-desactived {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 550px;
+}
+
+.group-desactived {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 70%;
+  background: var(--lightblue);
+  border-radius: 15px;
+  padding: 25px 15px;
+  box-shadow: 8px 10px 24px 2px rgba(0, 0, 0, 0.39)
+}
+
+.group-desactived p, .group-desactived a {
+  font-family: "Montserrat", sans-serif;
+}
+
+.retour a:hover {
+  color: var(--lightbrown);
+}
+
+.erreur-user {
+  text-align: center;
+}
+
+.erreur-user h2 {
+  font-size: 40px;
 }
 
 /**************** CSS du footer  ****************/
@@ -1064,11 +1351,32 @@ footer {
     padding-bottom: 18px;
   }
 
+  .articles {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .articles img {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+    height: 280px;
+  }
+
+  .articles .right {
+    width: 100%;
+  }
+
+  .
+
   /* page du dashboard */
 
   .dashboard-container {
     height: auto;
-    padding-bottom: 20px;
+    padding: 15px;
+  }
+
+  .dashboard-container h2 {
+    margin-bottom: 20px;
   }
   
   .list-container {
@@ -1079,5 +1387,17 @@ footer {
     width: 90%;
     height: 2px;
     margin: 30px auto;
+  }
+
+  .update-container button {
+    margin-top: 50px;
+  }
+
+  .image-preview img {
+    width: 200px;
+  }
+
+  .tools-profile p {
+    font-size: 15px;
   }
 }

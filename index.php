@@ -1,7 +1,7 @@
     <?php
     require "./assets/core/header.php";
 
-    $sql = "SELECT * FROM article ORDER BY date_creation DESC";
+    $sql = "SELECT * FROM article ORDER BY date_creation DESC LIMIT 10";
     require "./assets/core/config.php";
     $articles = $pdo->prepare($sql);
     $articles->execute();
@@ -20,7 +20,7 @@
                         echo '<a href="articlePage.php?id_art=' . $result['id_art'] . '">' . $result['title'] . '</a><br>';
                     }
                 } else {
-                    echo "";
+                    
                 } ?>
             </div>
             <h2>Les recettes</h2>
@@ -35,7 +35,7 @@
                                 <img src="<?= $article['image']; ?>" alt="">
                                 <div class="right">
                                     <div class="titre"><?= $article['title'] ?></div>
-                                    <p class="description"><?= $article['contenu'] ?></p>
+                                    <p class="description"><?= nl2br($article['description'], true) ?></p>
                                 </div>
                             </div>
                         </a>
@@ -50,22 +50,28 @@
         <section class="section-2">
             <h2>Petits délices</h2>
             <div class="petit-delices">
-                <img src="./assets/img/crepe.jpg" alt="">
-                <h4>
-                    Les crêpes
-                </h4>
+                <a href="">
+                    <img src="./assets/img/crepe.jpg" alt="">
+                    <h4>
+                        Les crêpes
+                    </h4>
+                </a>
             </div>
             <div class="petit-delices">
-                <img src="./assets/img/gaufre.jpg" alt="">
-                <h4>
-                    Les gaufres
-                </h4>
+                <a href="">
+                    <img src="./assets/img/gaufre.jpg" alt="">
+                    <h4>
+                        Les gaufres
+                    </h4>
+                </a>
             </div>
             <div class="petit-delices">
-                <img src="./assets/img/pancake.jpg" alt="">
-                <h4>
-                    Les pancakes
-                </h4>
+                <a href="">
+                    <img src="./assets/img/pancake.jpg" alt="">
+                    <h4>
+                        Les pancakes
+                    </h4>
+                </a>
             </div>
         </section>
         </div>
