@@ -9,17 +9,18 @@ if (isset($_POST['submit'])) {
         if ($_POST["hash_mpd1"] == $_POST["hash_mpd2"]) {
             
             $email = $_POST["email"];
-            $pseudo = $_POST["pseudo"];
             $activation = 1;
+            $pseudo = $_POST["pseudo"];
 
              // Vérification du mot de passe
              if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $_POST["hash_mpd1"]) || strlen($_POST["hash_mpd1"]) < 6) {
                 echo "<p>Mot de passe invalide : doit contenir au moins 6 caractères et/ou pas de caractères spéciaux.</p>";
+            } else {
+                // le mot de passe de confirmation
+                $hash_mpd = $_POST["hash_mpd1"];
             }
             
 
-            // le mot de passe de confirmation
-            $hash_mpd = $_POST["hash_mpd1"];
             // A remplacer pour hasher le mot de passe par:
             $options = [
                 'cost' => 12,

@@ -6,7 +6,6 @@ if (isset($_POST['id_art']) && isset($_POST['message'])) {
     // On récupère les données
     $id_art = htmlspecialchars($_POST['id_art']);
     $message = htmlspecialchars($_POST['message']);
-    var_dump($id_art);
      // l'utilisateur est connecté ? et est ce qu'il a le bon rôle
     if (isset($_SESSION['utilisateur']['id_ut']) && (($_SESSION['utilisateur']['role'] === 'utilisateur') || ($_SESSION['utilisateur']['role'] === 'editeur') || ($_SESSION['utilisateur']['role'] === 'admin'))) {
 

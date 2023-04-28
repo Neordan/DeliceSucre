@@ -26,11 +26,11 @@ require "./rechercheArt.php";
                                     <p><?= $resultArt['title'] ?></p>
                                     <form action="updateArticle.php" class="btn-users">
                                         <input type="hidden" name="id_art" value="<?= $resultArt['id_art'] ?>">
-                                        <button class="delete"><a href="./updateArticle.php?id_art=<?php echo $resultArt['id_art']; ?>">Modifier</a></button>
+                                        <button class="delete"><a href="./updateArticle.php?id_art=<?= $resultArt['id_art']; ?>">Modifier</a></button>
                                     </form>
                                     <form action="deleteArticle.php" class="btn-users">
                                         <input type="hidden" name="id_art" value="<?= $resultArt['id_art'] ?>">
-                                        <button class="delete"><a href="./deleteArticle.php?id_art=<?php echo $resultArt['id_art']; ?>">Supprimer</a></button>
+                                        <button class="delete"><a href="./deleteArticle.php?id_art=<?= $resultArt['id_art']; ?>">Supprimer</a></button>
                                     </form>
                                 </div>
                         <?php endforeach;

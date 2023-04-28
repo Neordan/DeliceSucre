@@ -45,7 +45,7 @@ if (isset($_POST["email"]) && isset($_POST["hash_mdp"])) {
             } else {
                 echo "Mot de passe incorrect.";
             }
-        }
+       } 
     } catch(PDOException $e) {
         echo $e-> getMessage();
         $message = "<p>Une erreur s'est produite</p>";
